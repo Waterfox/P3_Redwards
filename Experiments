@@ -1,0 +1,140 @@
+
+
+TrainX = 900MB student training data
+TrainY = Udacity training Data Track A
+Train # = Robbie iteration number - see notes in file on specific number
+
+
+Dec 12
+3Conv
+3FC
+Relu
+downscale
+gray
+Train X
+----Bad-----
+
+Dec 13
+3Conv
+3FC
+Relu
+downscale
+gray
+Train Y
+----Bad-----
+
+Dec 13
+5Conv
+5FC
+Relu
+RGB
+Train Y
+----Bad-----
+
+Dec 14
+Nvi
+TrainY, 10 - fails on sandy corner
+TrainY, 10,11 - fails on first corner
+
+NVI 5C4L  5B
+TrainX - > fail const angle
+
+NVI 5C2L  5B
+TrainX -> fail, car drives to side
+
+NVI 5C2L  5B
+TrainX -> fail constant angle?
+
+NVI 2C2L  5B
+TrainX -> fail constant angle?
+
+C124L124	5B
+TrainY -> OK, train
+TrainY,Train12 -> hard bias left
+TrainY,Train12M
+
+
+NVI 5C4L
+TrainYM-> Not bad, drives through sandy corner
+TrainYM, 12M - > sandy corner
+TrainYM, 12M 12M-> fail bridge
+
+Nvi 5C4L, C1: 12x12-64
+TrainYM: fail, drives off bridge
+
+Nvi 5C4L, C1: 12x12-112
+TrainYM: fail, drives off bridge
+
+SMALL IMAGES !
+4C3L L C1 5x5:
+TrainYM: probably best so far, end of sand
+
+4C3L C1 12x12x64
+TrainYM: wobbles, bad
+
+4C3L C1 7x7x32
+TrainYM: drives off sand
+
+4C3L C1 7x7x32
+TrainYM: drives off sand
+
+4C3L C1 6x6x24
+TrainYM: drives well, hits bridge
+
+4C3L C1 6x6x64
+TrainYM: drives well, hits bridge wall??
+
+4C3L C1 6x6x64
+TrainYM, 12A: side, sand
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 12A: side, sand
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A,:very good, sand
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A, 12A,: good, bridge wall
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A, 12A, 5A,: good, wobbles, , gets passed SAND!
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A, 12A, 5A,5B,: good,big wobbles, runs off road aft sand
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A, 12A, 5A,5B, 6A: good,big wobbles, Unreliable laps!
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A, 12A, 5A,5B, 6A,8A: unreliable laps, can drive off the second water edge
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A, 12A, 5A,5B, 6A,8A,13A,14A: wobbly, bias left can drive off the second water edge
+
+4C3L C1 6x6x42 C2 5x5x54
+TrainYM, 11A, 12A, 5A,5B, 6A,8A,13A,14A,14A: wobbly, can drive off sand
+
+
+------RESTART: fx=0.4, fy=0.4, full image---------
+
+4C3L C1:6x6x24 C2: 5x5x42 C3: 4x4x54  C4: 3x3x64  L1 512 L2 128 L3 12
+
+TrainYM: = very good, water2
+TrainYM,15A = bad
+
+TrainYM: = very good, water2
+TrainYM,14A = doing laps, drives on to edge sometimes
+TrainYM,14A,YM,15A,15A = bad
+YM, 15A, sand
+YM12E - sand
+
+
+TrainX = not great
+4C4L, X =not great
+
+YM,14A,5A = almost perfect, touches edge 1/5 laps - saved 
+YM,14A,5A,5B = bad in B, hits A
+
+YM,14A,5A = almost perfect - saved - SUBMITTED
+YM,14A,5A,8A = drives off an edge
+YM,14A,5A,8A,12A = not good
