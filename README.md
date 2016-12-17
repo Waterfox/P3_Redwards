@@ -3,6 +3,7 @@
 The solution to this project was acheived by manually iterating across multiple variables as well as experimenting with the model architecture. Some of the variables adjusted throughout the project included:
 
 Preprocessing:
+
 1. The region of interest: Some of the vertical field of view was masked from the camera images. This was done to remove the car hood from the image and to attempt to stop the model from training on background scenery. Using background scenery when training seems like bad practice and may just result in having the model memorize the driving path. I spend a good deal of time working with the maked data but eventually returned to the full camera view which offered better performance.
 
 2.	The color-space used. Initially normalized RGB data was used in the model. YUV and grayscale were also attempted. RGB data was ultimately used.
@@ -10,6 +11,7 @@ Preprocessing:
 3.  Image size. Downsampling the image amounts to throwing away information but it offers increased compute time performance and lower memory requirements. Most importantly, I suspect it scales the image features to a size detectable by the kernels size (thus number of parameters) I could fit into memory.
 
 Model design
+
 1. The general hyper-parameters of the model
 	a) batch size: This was initially set at 128 images. It was varied as higher memory requirement models were run, but returned to 128.
 	b) number training epochs. While evolving the model and training data, between 5 and 10 training epochs were used. Students noted no increased performance above 5 training epochs. Interestingly, training beyond 6-8 Epochs often resulted in poor performance. 6 epochs were used for initial training and 5 epochs were used for updating data
@@ -259,20 +261,29 @@ MODEL :4C3L C1:6x6x24 C2: 5x5x42 C3: 4x4x54  C4: 3x3x64  L1: 512 L2: 128 L3: 12
 Training data used and results
 
 TrainYM: = very good, water2
+
 TrainYM,15A = bad
 
 TrainYM: = very good, water2
+
 TrainYM,14A = doing laps, drives on to edge sometimes
+
 TrainYM,14A,YM,15A,15A = bad
+
 YM, 15A, sand
+
 YM12E - sand
 
 TrainX = not great
+
 4C4L, X =not great
 
 YM,14A,5A = almost perfect, touches edge 1/5 laps - saved 
+
 YM,14A,5A,5B = bad in B, hits wall in  A
 
 YM,14A,5A = almost perfect - saved - SUBMITTED
+
 YM,14A,5A,8A = drives off an edge
+
 YM,14A,5A,8A,12A = not good
